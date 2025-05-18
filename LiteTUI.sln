@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteTUI", "LiteTUI\LiteTUI.csproj", "{58CAD003-9E17-47B3-AE48-76E8DFA6A9FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteTUI.Example", "LiteTUI.Example\LiteTUI.Example.csproj", "{8C81CD6E-E57D-4660-9C22-69BC568C2985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58CAD003-9E17-47B3-AE48-76E8DFA6A9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CAD003-9E17-47B3-AE48-76E8DFA6A9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CAD003-9E17-47B3-AE48-76E8DFA6A9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CAD003-9E17-47B3-AE48-76E8DFA6A9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C81CD6E-E57D-4660-9C22-69BC568C2985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C81CD6E-E57D-4660-9C22-69BC568C2985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C81CD6E-E57D-4660-9C22-69BC568C2985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C81CD6E-E57D-4660-9C22-69BC568C2985}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
