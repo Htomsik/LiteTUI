@@ -1,9 +1,11 @@
 namespace LiteTUI.Models
 {
-    public class Menu
+    public class Menu(string title)
     {
-        public string Title { get; set; } = string.Empty;
+        public string Title { get; set; } = title;
+        
         public List<MenuItem> Items { get; } = new();
+        
         public int SelectedIndex { get; set; } = 0;
         
         public MenuItem? SelectedItem => Items.Count > 0 ? Items[SelectedIndex] : null;
