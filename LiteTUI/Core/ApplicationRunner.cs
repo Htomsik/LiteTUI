@@ -39,8 +39,13 @@ namespace LiteTUI.Core
                         _context.CurrentMenu.MoveDown();
                         break;
                     case ConsoleKey.Enter:
-                        if (_context.CurrentMenu.SelectedItem != null)
-                             _context.CurrentMenu.SelectedItem.ExecuteAsync();
+                        if (_context.CurrentMenu.SelectedItem == null)
+                                break;
+                        // Like this, asynchronus operation is working "right" and doesn't block contextx
+                        _ = Task.Run(async () => 
+                        {
+                            await _context.CurrentMenu.SelectedItem.ExecuteAsync();
+                        });
                         break;
                     case ConsoleKey.Escape:
                         // If we're in a submenu and pressed Escape, return to the main menu

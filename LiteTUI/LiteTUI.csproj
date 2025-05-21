@@ -1,11 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>LiteTUI</AssemblyName>
     <RootNamespace>LiteTUI</RootNamespace>
+    <Title>LiteTUI</Title>
+    <Authors>Htomsik</Authors>
+    <Description>A VERY simple Text User Interface library for console </Description>
+    <RepositoryUrl>https://github.com/Htomsik/LiteTUI</RepositoryUrl>
+    <LangVersion>12</LangVersion>
+    <Version>0.0.1</Version>
+    <PackageIcon>Resources\Nuget.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/Htomsik/LiteTUI</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Console TUI</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Nuget.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
