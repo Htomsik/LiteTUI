@@ -9,9 +9,8 @@ A simple text-based user interface library for .NET console applications that pr
 * "Customizable" information blocks for displaying additional data
 * Selection menu with toggle functionality
 
-## How to use
 
-See the `LiteTUI.Example` project for a working demonstration.
+## How to use
 
 ```csharp
 // Context - global application state
@@ -24,15 +23,15 @@ mainMenu.Items.Add(new MenuItem("Option 1", new YourCommand(context)));
 // Optional
 mainMenu.Items.Add(new MenuItem("Exit", new ExitCommand(context)));
 
-// And start all of this shit, you can be proud of yoursel
+// And start all of this
 var application = new ApplicationRunner(context, mainMenu);
 await application.RunAsync();
 ```
 
-### Selection Menu
+## Selection Menu
 
 ```csharp
-// Example 
+// Example with complex objects
 class Product
 {
     public int Id { get; set; }
@@ -57,14 +56,10 @@ var selectionMenu = new MenuSelection<Product>(
     product => $"{product.Name} - ${product.Price}",
     new ChangeMenuCommand(context, mainMenu) // back command
 );
+
+// Access selections via selectionService.SelectedItems
 ```
 
-<details>
-  <summary>PS</summary>
+## Note
 
-I deliberately did not use complex systems or design patterns. This template is intended only for creating simple applications with minimal functionality.
-
-**Using ApplicationContext in such a way in large and scalable applications is incorrect. You should not structure large applications like this.**
-</details>
-
-
+This package only for creating simple applications with minimal functionality. Using ApplicationContext in such a way in large and scalable applications is incorrect. You should not structure large applications like this. 
