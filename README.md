@@ -8,6 +8,7 @@ A simple text-based user interface library for .NET console applications that pr
 * Easy-to-use asynchronous commands with live status updates in the menu
 * "Customizable" information blocks for displaying additional data
 * Selection menu with toggle functionality
+* Independent UI rendering that updates the interface regardless of user input
 
 ## How to use
 

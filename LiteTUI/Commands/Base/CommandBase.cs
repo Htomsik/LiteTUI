@@ -4,19 +4,7 @@ namespace LiteTUI.Commands.Base
 {
     public abstract class CommandBase(ApplicationContext context) : ICommand
     {
-        private string _state = string.Empty;
-        public string State
-        {
-            get => _state;
-            protected set
-            {
-                if (_state == value) 
-                    return;
-                
-                _state = value;
-                Context.OnMenuChanged();
-            }
-        }
+        public string State { get; protected set; } = string.Empty;
         
         protected readonly ApplicationContext Context = context;
 

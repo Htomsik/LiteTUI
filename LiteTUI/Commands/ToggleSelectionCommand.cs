@@ -29,7 +29,6 @@ namespace LiteTUI.Commands
         private void UpdateState()
         {
             State = _selectionService.IsSelected(_item) ? "X" : "";
-            Context.OnMenuChanged(); 
         }
     }
 } 

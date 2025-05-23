@@ -7,34 +7,9 @@ namespace LiteTUI.Core
         public bool Running { get; set; } = true;
         
         // Global menu
-        private Menu? _currentMenu;
-        public Menu? CurrentMenu 
-        { 
-            get => _currentMenu;
-            set
-            {
-                _currentMenu = value;
-                OnMenuChanged();
-            }
-        }
+        public Menu? CurrentMenu { get; set; }
         
         // Additional information to display under the menu
-        private InfoBlock? _infoBlock;
-        public InfoBlock? InfoBlock 
-        { 
-            get => _infoBlock;
-            set
-            {
-                _infoBlock = value;
-                OnMenuChanged();
-            }
-        }
-        
-        // Event triggered when current menu changes
-        public event Action? MenuChanged;
-        public void OnMenuChanged()
-        {
-            MenuChanged?.Invoke();
-        }
+        public InfoBlock? InfoBlock { get; set; }
     }
 } 

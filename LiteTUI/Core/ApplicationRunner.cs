@@ -22,15 +22,32 @@ namespace LiteTUI.Core
             // Set initial menu
             _context.CurrentMenu = _mainMenu;
             
-            // Main application loop
+            // Launch other task for only input
+            var inputTask = Task.Run(ProcessInputAsync);
+            
+            // render task
             while (_context.Running)
             {
                 _renderer.RenderAll();
+                await Task.Delay(50); // Обновляем каждые 50мс
+            }
+            
+            await inputTask;
+            
+            Console.Clear();
+            Console.CursorVisible = true;
+        }
+        
+        private async Task ProcessInputAsync()
+        {
+            while (_context.Running && _context.CurrentMenu != null)
+            {
+                await Task.Delay(10);
                 
-                var key = Console.ReadKey(true).Key;
-                bool continueLoop = true;
+                if (!Console.KeyAvailable)
+                    continue;
                 
-                switch (key)
+                switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.UpArrow:
                         _context.CurrentMenu.MoveUp();
@@ -40,12 +57,8 @@ namespace LiteTUI.Core
                         break;
                     case ConsoleKey.Enter:
                         if (_context.CurrentMenu.SelectedItem == null)
-                                break;
-                        // Like this, asynchronus operation is working "right" and doesn't block contextx
-                        _ = Task.Run(async () => 
-                        {
-                            await _context.CurrentMenu.SelectedItem.ExecuteAsync();
-                        });
+                            break;
+                        _= _context.CurrentMenu.SelectedItem.ExecuteAsync();
                         break;
                     case ConsoleKey.Escape:
                         // If we're in a submenu and pressed Escape, return to the main menu
@@ -53,13 +66,7 @@ namespace LiteTUI.Core
                             _context.CurrentMenu = _mainMenu;
                         break;
                 }
-                
-                if (!continueLoop)
-                    break;
             }
-            
-            Console.Clear();
-            Console.CursorVisible = true;
         }
     }
 } 

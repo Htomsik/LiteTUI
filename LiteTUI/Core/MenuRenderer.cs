@@ -7,9 +7,6 @@ namespace LiteTUI.Core
         public Render(ApplicationContext context)
         {
             _context = context;
-            
-            // Subscribe to menu changes
-            _context.MenuChanged += RenderAll;
         }
         
         public void RenderAll()
