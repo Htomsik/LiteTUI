@@ -1,10 +1,10 @@
 namespace LiteTUI.Core
 {
-    public class Render
+    public class ApplicationRender
     {
         private readonly ApplicationContext _context;
         
-        public Render(ApplicationContext context)
+        public ApplicationRender(ApplicationContext context)
         {
             _context = context;
         }

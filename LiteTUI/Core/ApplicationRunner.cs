@@ -1,3 +1,4 @@
+using LiteTUI.Controls.Menu;
 using LiteTUI.Models;
 
 namespace LiteTUI.Core
@@ -6,13 +7,13 @@ namespace LiteTUI.Core
     {
         private readonly ApplicationContext _context;
         private readonly Menu _mainMenu;
-        private readonly Render _renderer;
+        private readonly ApplicationRender _renderer;
         
         public ApplicationRunner(ApplicationContext context, Menu mainMenu)
         {
             _context = context;
             _mainMenu = mainMenu;
-            _renderer = new Render(context);
+            _renderer = new ApplicationRender(context);
         }
 
         public async Task RunAsync()

@@ -3,7 +3,7 @@ using LiteTUI.Commands.Base;
 using LiteTUI.Core;
 using LiteTUI.Services;
 
-namespace LiteTUI.Models
+namespace LiteTUI.Controls.Menu
 {
     public class MenuSelection<T> : Menu
     {

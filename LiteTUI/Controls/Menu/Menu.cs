@@ -1,4 +1,4 @@
-namespace LiteTUI.Models
+namespace LiteTUI.Controls.Menu
 {
     public class Menu(string title)
     {

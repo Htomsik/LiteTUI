@@ -1,6 +1,6 @@
 using LiteTUI.Commands.Base;
 
-namespace LiteTUI.Models
+namespace LiteTUI.Controls.Menu
 {
     public record MenuItem
     {
