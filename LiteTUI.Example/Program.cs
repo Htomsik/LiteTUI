@@ -1,8 +1,8 @@
 ﻿using LiteTUI.Commands;
+using LiteTUI.Controls.Info;
 using LiteTUI.Controls.Menu;
 using LiteTUI.Core;
 using LiteTUI.Example.Commands;
-using LiteTUI.Models;
 using LiteTUI.Services;
 using ApplicationContext = LiteTUI.Core.ApplicationContext;
 
@@ -50,13 +50,13 @@ namespace LiteTUI.Example
                 selectionService,
                 "Select Fruits",
                 item => item.Name,  // function to get item text
-                new ChangeMenuCommand(context, mainMenu)  // back command
+                new ChangeControlCommand(context, mainMenu)  // back command
             );
             
             // Add item for navigating to selection menu
             mainMenu.Items.Add(new MenuItem(
                 "Go to selection menu",
-                new ChangeMenuCommand(context, selectionMenu)
+                new ChangeControlCommand(context, selectionMenu)
             ));
             
             mainMenu.Items.Add(new MenuItem("Exit", new ExitCommand(context)));

@@ -1,6 +1,6 @@
 # LiteTUI
 
-A simple text-based user interface library for .NET console applications that provides an asynchronous menu system.
+A simple text-based user interface library for console
 
 ## Features
 
@@ -19,7 +19,7 @@ See the `LiteTUI.Example` project for a working demonstration.
 var context = new ApplicationContext();
 
 // Add main menu with your commands
-var mainMenu = new Menu { Title = "Main Menu" };
+var mainMenu = new Menu("Main Menu");
 mainMenu.Items.Add(new MenuItem("Option 1", new YourCommand(context)));
 
 // Optional
@@ -56,8 +56,39 @@ var selectionMenu = new MenuSelection<Product>(
     selectionService,
     "Select Products",
     product => $"{product.Name} - ${product.Price}",
-    new ChangeMenuCommand(context, mainMenu) // back command
+    new ChangeControlCommand(context, mainMenu) // back command
 );
+```
+
+### Creating a Custom Control
+
+```csharp
+// Inherit from BaseControl to create your own UI elements
+public class MyCustomControl : BaseControl
+{
+    public MyCustomControl(string title) : base(title)
+    {
+    }
+    
+    // Override HandleKey to respond to user input
+    public override bool HandleKey(ConsoleKey key)
+    {
+        if (key == ConsoleKey.X)
+        {
+            // Handle X key press
+            return true;
+        }
+        
+        return base.HandleKey(key);
+    }
+    
+    // Override Render to define your control's appearance
+    public override void Render()
+    {
+        RenderHeader(); // Use base header rendering
+        Console.WriteLine("This is my custom control!");
+    }
+}
 ```
 
 <details>
