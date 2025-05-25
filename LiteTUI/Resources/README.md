@@ -4,11 +4,14 @@ A simple text-based user interface library for console
 
 ## Features
 
-* Simple menu navigation
-* Easy-to-use asynchronous commands with live status updates in the menu
-* "Customizable" information blocks for displaying additional data
-* Selection menu with toggle functionality
-* Independent UI rendering that updates the interface regardless of user input
+### Controls
+- Menu: Simple, Selection
+- Input: Text Input control
+- Info: Block under primary control
+
+### Peculiarities
+- "Easy-to-use" asynchronous commands with live status updates in the menu
+- UI rendering updates the interface regardless of user input
 
 ## How to use
 
@@ -83,6 +86,6 @@ var name = await cmd.ExecuteAsync();
 
 ## Note
 
-I deliberately did not use complex systems or design patterns. This template is intended only for creating simple applications with minimal functionality.
+I special didn't use complex system for this. This template is only for simple applications with MINIMAL functions.
 
-**Using ApplicationContext in such a way in large and scalable applications is incorrect. You should not structure large applications like this.** 
+**DONT USE ANY OF THIS AS A DESIGN RECOMMENDATION**
