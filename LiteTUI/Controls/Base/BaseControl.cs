@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace LiteTUI.Controls.Base
 {
     /// <summary>
@@ -24,19 +26,17 @@ namespace LiteTUI.Controls.Base
         }
         
         /// <summary>
-        /// Renders the control header with title
+        /// Gets the header content with title
         /// </summary>
-        protected void RenderHeader()
+        protected void AppendHeader(StringBuilder builder)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"{Title.PadRight(37)}");
-            Console.WriteLine($"=======================================");
-            Console.ResetColor();
+            builder.AppendLine($"{Title.PadRight(37)}");
+            builder.AppendLine($"=======================================");
         }
         
         /// <summary>
-        /// Renders the control
+        /// Gets the control content as StringBuilder
         /// </summary>
-        public abstract void Render();
+        public abstract StringBuilder GetRenderContent();
     }
 } 
