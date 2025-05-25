@@ -16,12 +16,10 @@ namespace LiteTUI.Controls.Menu
             Command = command;
         }
         
-        public async Task<bool> ExecuteAsync()
+        public async Task ExecuteAsync()
         {
             if (IsEnabled)
-                return await Command.ExecuteAsync();
-            
-            return true;
+                await Command.ExecuteAsync();
         }
     }
 } 

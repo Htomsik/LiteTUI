@@ -19,7 +19,7 @@ namespace LiteTUI.Controls.Base
         /// </summary>
         /// <param name="key">The key that was pressed</param>
         /// <returns>True if the key was handled; otherwise false</returns>
-        public virtual bool HandleKey(ConsoleKey key)
+        public virtual bool HandleKey(ConsoleKeyInfo key)
         {
             // Base implementation doesn't handle any keys
             return false;

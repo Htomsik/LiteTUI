@@ -21,9 +21,9 @@ namespace LiteTUI.Controls.Menu
         protected virtual void MoveDown() => 
             SelectedIndex = Math.Min(Items.Count - 1, SelectedIndex + 1);
         
-        public override bool HandleKey(ConsoleKey key)
+        public override bool HandleKey(ConsoleKeyInfo keyInfo)
         {
-            switch (key)
+            switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
                     MoveUp();

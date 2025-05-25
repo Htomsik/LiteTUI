@@ -4,7 +4,7 @@ using LiteTUI.Core;
 
 namespace LiteTUI.Commands
 {
-    public class ShowInfoCommand : CommandBase
+    public class ShowInfoCommand : CommandBase<bool>
     {
         private readonly InfoBlock _infoBlock;
 

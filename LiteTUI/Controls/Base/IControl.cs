@@ -7,7 +7,7 @@ public interface IControl
 {
     public string Title { get; set; }
 
-    public bool HandleKey(ConsoleKey key);
+    public bool HandleKey(ConsoleKeyInfo keyInfo);
     
     public StringBuilder GetRenderContent();
 }

@@ -10,14 +10,14 @@ namespace LiteTUI.Controls.Menu
         private readonly ApplicationContext _context;
         private readonly SelectionService<T> _selectionService;
         private readonly Func<T, string> _itemTextProvider;
-        private readonly ICommand _backCommand;
+        private readonly ICommand<bool> _backCommand;
         
         public MenuSelection(
             ApplicationContext context,
             SelectionService<T> selectionService,
             string title,
             Func<T, string> itemTextProvider,
-            ICommand backCommand) : base(title)
+            ICommand<bool> backCommand) : base(title)
         {
             _context = context;
             _selectionService = selectionService;

@@ -4,7 +4,7 @@ using LiteTUI.Services;
 
 namespace LiteTUI.Commands
 {
-    public class ToggleSelectionCommand<T> : CommandBase
+    public class ToggleSelectionCommand<T> : CommandBase<bool>
     {
         private readonly SelectionService<T> _selectionService;
         private readonly T _item;
