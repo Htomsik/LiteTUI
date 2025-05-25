@@ -1,7 +1,6 @@
 # LiteTUI
 
 A simple text-based user interface library for console
-
 ## Features
 
 ### Controls
@@ -46,6 +45,7 @@ var selectionMenu = new MenuSelection<Product>(
     "Products",
     p => $"{p.Name} - ${p.Price}",
     new ChangeControlCommand(context, mainMenu)
+
 );
 ```
 
@@ -82,6 +82,37 @@ input.InputCompleted += text => context.CurrentControl = mainMenu;
 // As command
 var cmd = new TextInputCommand(context, "Enter Name");
 var name = await cmd.ExecuteAsync();
+```
+
+## Creating a Custom Control
+
+```csharp
+// Inherit from BaseControl to create your own UI elements
+public class MyCustomControl : BaseControl
+{
+    public MyCustomControl(string title) : base(title)
+    {
+    }
+    
+    // Override HandleKey to respond to user input
+    public override bool HandleKey(ConsoleKey key)
+    {
+        if (key == ConsoleKey.X)
+        {
+            // Handle X key press
+            return true;
+        }
+        
+        return base.HandleKey(key);
+    }
+    
+    // Override Render to define your control's appearance
+    public override void Render()
+    {
+        RenderHeader(); // Use base header rendering
+        Console.WriteLine("This is my custom control!");
+    }
+}
 ```
 
 ## Note

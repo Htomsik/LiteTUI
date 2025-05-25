@@ -1,6 +1,7 @@
 using LiteTUI.Controls.Base;
 using System.Text;
 
+
 namespace LiteTUI.Controls.Menu
 {
     public class Menu : BaseControl
@@ -45,6 +46,7 @@ namespace LiteTUI.Controls.Menu
             }
         }
         
+
         public override StringBuilder GetRenderContent()
         {
             var builder = new StringBuilder();
@@ -52,22 +54,22 @@ namespace LiteTUI.Controls.Menu
             // Добавляем заголовок
             AppendHeader(builder);
             
-            // Добавляем пункты меню
+            // Add menu items
             for (int i = 0; i < Items.Count; i++)
             {
                 var item = Items[i];
                 string statusText = string.Empty;
                 
-                // Добавляем статус команды, если доступен
+                // Add command status if available
                 if (item.Command != null && !string.IsNullOrEmpty(item.Command.State))
                 {
                     statusText = $" [{item.Command.State}]";
                 }
                 
-                // Индикатор выбранного пункта
+                // Selected item indicator
                 string selectionIndicator = i == SelectedIndex ? " > " : "   ";
                 
-                // Текст пункта меню (учитываем активность)
+                // Menu item text
                 string itemText = item.IsEnabled ? $"{item.Text}{statusText}" : $"{item.Text}{statusText}";
                 
                 builder.AppendLine($"{selectionIndicator}{itemText}");

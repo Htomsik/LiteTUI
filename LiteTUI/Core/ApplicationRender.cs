@@ -5,14 +5,12 @@ namespace LiteTUI.Core
     public class ApplicationRender
     {
         private readonly ApplicationContext _context;
+
         private string _previousContent = string.Empty;
         
         public ApplicationRender(ApplicationContext context)
         {
             _context = context;
-            
-            // Hide cursor to reduce flickering
-            Console.CursorVisible = false;
         }
         
         public void RenderAll()
