@@ -1,5 +1,6 @@
-using LiteTUI.Controls.Menu;
-using LiteTUI.Models;
+using LiteTUI.Controls.Base;
+
+
 
 namespace LiteTUI.Core
 {
@@ -7,10 +8,10 @@ namespace LiteTUI.Core
     {
         public bool Running { get; set; } = true;
         
-        // Global menu
-        public Menu? CurrentMenu { get; set; }
+        // Current active control
+        public IControl? CurrentControl { get; set; }
         
-        // Additional information to display under the menu
-        public InfoBlock? InfoBlock { get; set; }
+        // Additional information to display under the main control
+        public IControl? InfoBlock { get; set; }
     }
 } 
