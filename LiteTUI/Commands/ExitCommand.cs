@@ -3,7 +3,7 @@ using LiteTUI.Core;
 
 namespace LiteTUI.Commands
 {
-    public class ExitCommand : CommandBase
+    public class ExitCommand : CommandBase<bool>
     {
         public ExitCommand(ApplicationContext context)
             : base(context)

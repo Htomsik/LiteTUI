@@ -1,4 +1,6 @@
 using LiteTUI.Controls.Base;
+using System.Text;
+
 
 namespace LiteTUI.Controls.Menu
 {
@@ -20,9 +22,9 @@ namespace LiteTUI.Controls.Menu
         protected virtual void MoveDown() => 
             SelectedIndex = Math.Min(Items.Count - 1, SelectedIndex + 1);
         
-        public override bool HandleKey(ConsoleKey key)
+        public override bool HandleKey(ConsoleKeyInfo keyInfo)
         {
-            switch (key)
+            switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
                     MoveUp();
@@ -44,12 +46,15 @@ namespace LiteTUI.Controls.Menu
             }
         }
         
-        public override void Render()
+
+        public override StringBuilder GetRenderContent()
         {
-            // Draw title
-            RenderHeader();
+            var builder = new StringBuilder();
             
-            // Draw menu items
+            // Добавляем заголовок
+            AppendHeader(builder);
+            
+            // Add menu items
             for (int i = 0; i < Items.Count; i++)
             {
                 var item = Items[i];
@@ -61,13 +66,16 @@ namespace LiteTUI.Controls.Menu
                     statusText = $" [{item.Command.State}]";
                 }
                 
-                // Set color based on selection and item activity
-                Console.ForegroundColor = item.IsEnabled ? ConsoleColor.Gray : ConsoleColor.DarkGray;
+                // Selected item indicator
+                string selectionIndicator = i == SelectedIndex ? " > " : "   ";
                 
-                Console.Write(i == SelectedIndex ? " > " : "   ");
-                Console.WriteLine($"{item.Text}{statusText}");
-                Console.ResetColor();
+                // Menu item text
+                string itemText = item.IsEnabled ? $"{item.Text}{statusText}" : $"{item.Text}{statusText}";
+                
+                builder.AppendLine($"{selectionIndicator}{itemText}");
             }
+            
+            return builder;
         }
     }
 } 

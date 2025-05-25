@@ -1,3 +1,6 @@
+using System.Text;
+
+
 namespace LiteTUI.Controls.Base
 {
     /// <summary>
@@ -17,26 +20,26 @@ namespace LiteTUI.Controls.Base
         /// </summary>
         /// <param name="key">The key that was pressed</param>
         /// <returns>True if the key was handled; otherwise false</returns>
-        public virtual bool HandleKey(ConsoleKey key)
+
+        public virtual bool HandleKey(ConsoleKeyInfo key)
+
         {
             // Base implementation doesn't handle any keys
             return false;
         }
         
         /// <summary>
-        /// Renders the control header with title
+        /// Gets the header content with title
         /// </summary>
-        protected void RenderHeader()
+        protected void AppendHeader(StringBuilder builder)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"{Title.PadRight(37)}");
-            Console.WriteLine($"=======================================");
-            Console.ResetColor();
+            builder.AppendLine($"{Title.PadRight(37)}");
+            builder.AppendLine($"=======================================");
         }
         
         /// <summary>
-        /// Renders the control
+        /// Gets the control content as StringBuilder
         /// </summary>
-        public abstract void Render();
+        public abstract StringBuilder GetRenderContent();
     }
 } 

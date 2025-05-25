@@ -3,7 +3,7 @@ using LiteTUI.Core;
 
 namespace LiteTUI.Example.Commands
 {
-    public class AsyncDelayCommand : CommandBase
+    public class AsyncDelayCommand : CommandBase<bool>
     {
         private readonly int _delayMs;
         

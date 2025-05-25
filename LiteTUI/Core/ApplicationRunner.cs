@@ -46,11 +46,11 @@ namespace LiteTUI.Core
                 
                 if (!Console.KeyAvailable)
                     continue;
-                
-                var key = Console.ReadKey(true).Key;
+
+                var keyInfo = Console.ReadKey(true);
                 
                 // Let the control handle the key press
-                _context.CurrentControl.HandleKey(key);
+                _context.CurrentControl.HandleKey(keyInfo);
             }
         }
     }

@@ -1,4 +1,6 @@
 using LiteTUI.Controls.Base;
+using System.Text;
+
 
 namespace LiteTUI.Controls.Info
 {
@@ -11,14 +13,18 @@ namespace LiteTUI.Controls.Info
             Content = content;
         }
         
-        public override void Render()
+        public override StringBuilder GetRenderContent()
         {
+            var builder = new StringBuilder();
+            
             if (string.IsNullOrEmpty(Content))
-                return;
+                return builder;
                 
-            Console.WriteLine();
-            RenderHeader();
-            Console.WriteLine(Content);
+            builder.AppendLine();
+            AppendHeader(builder);
+            builder.AppendLine(Content);
+            
+            return builder;
         }
     }
 } 

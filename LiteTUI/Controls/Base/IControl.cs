@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace LiteTUI.Controls.Base;
 
 
@@ -5,7 +7,7 @@ public interface IControl
 {
     public string Title { get; set; }
 
-    public bool HandleKey(ConsoleKey key);
+    public bool HandleKey(ConsoleKeyInfo keyInfo);
     
-    public void Render();
+    public StringBuilder GetRenderContent();
 }

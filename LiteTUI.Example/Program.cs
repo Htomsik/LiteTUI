@@ -3,6 +3,7 @@ using LiteTUI.Controls.Info;
 using LiteTUI.Controls.Menu;
 using LiteTUI.Core;
 using LiteTUI.Example.Commands;
+using LiteTUI.Example.Services;
 using LiteTUI.Services;
 using ApplicationContext = LiteTUI.Core.ApplicationContext;
 
@@ -20,13 +21,14 @@ namespace LiteTUI.Example
         {
             // Initialize application context
             var context = new ApplicationContext();
+
             
             // Create main menu
             var mainMenu = new Menu("Main Menu");
-            mainMenu.Items.Add(new MenuItem("Test async command (3 sec)", new AsyncDelayCommand(context, 3000)));
-            mainMenu.Items.Add(new MenuItem("Test async command (5 sec)", new AsyncDelayCommand(context, 5000)));
+            mainMenu.Items.Add(new MenuItem("Async command (3 sec)", new AsyncDelayCommand(context, 3000)));
+            mainMenu.Items.Add(new MenuItem("Async command (5 sec)", new AsyncDelayCommand(context, 5000)));
             mainMenu.Items.Add(new MenuItem(
-                "Test info block",
+                "Info Block",
                 new ShowInfoCommand(context,
                     new InfoBlock("Title", "Sample content")
                     )
@@ -55,8 +57,23 @@ namespace LiteTUI.Example
             
             // Add item for navigating to selection menu
             mainMenu.Items.Add(new MenuItem(
-                "Go to selection menu",
+                "Selection Menu",
                 new ChangeControlCommand(context, selectionMenu)
+            ));
+            
+            // Simple Service using input control
+            var textCommand = new TextInputCommand(context);
+            textCommand.Title = "Input some text";
+            mainMenu.Items.Add(new MenuItem(
+                "Text input",
+                textCommand
+            ));
+            
+            // Simple Service using input control
+            var authService = new AuthorizationService(context, new TextInputCommand(context));
+            mainMenu.Items.Add(new MenuItem(
+                "Authorization with Text input",
+                new AuthorizeCommand(context, authService)
             ));
             
             mainMenu.Items.Add(new MenuItem("Exit", new ExitCommand(context)));

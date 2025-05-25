@@ -4,7 +4,8 @@ using LiteTUI.Core;
 
 namespace LiteTUI.Commands
 {
-    public class ChangeControlCommand : CommandBase
+
+    public class ChangeControlCommand : CommandBase<bool>
     {
         private readonly IControl _targetControl;
 
