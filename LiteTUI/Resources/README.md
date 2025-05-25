@@ -82,11 +82,18 @@ public class MyCustomControl : BaseControl
         return base.HandleKey(key);
     }
     
-    // Override Render to define your control's appearance
-    public override void Render()
+    // Override GetRenderContent to define your control's appearance
+    public override StringBuilder GetRenderContent()
     {
-        RenderHeader(); // Use base header rendering
-        Console.WriteLine("This is my custom control!");
+        var builder = new StringBuilder();
+        
+        // Add header to the content
+        AppendHeader(builder);
+        
+        // Add custom content
+        builder.AppendLine("This is my custom control!");
+        
+        return builder;
     }
 }
 ```
