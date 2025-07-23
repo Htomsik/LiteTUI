@@ -13,10 +13,7 @@ namespace LiteTUI.Services
 
             SelectionChanged?.Invoke();
         }
-        
-        public bool IsSelected(T item)
-        {
-            return SelectedItems.Contains(item);
-        }
+
+        public bool IsSelected(T item, Func<T, bool>? predicate = null ) => predicate?.Invoke(item) ?? SelectedItems.Contains(item);
     }
 }
