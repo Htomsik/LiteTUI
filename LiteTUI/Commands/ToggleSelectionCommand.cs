@@ -6,10 +6,10 @@ namespace LiteTUI.Commands
 {
     public class ToggleSelectionCommand<T> : CommandBase<bool>
     {
-        private readonly SelectionService<T> _selectionService;
+        private readonly ISelectionService<T> _selectionService;
         private readonly T _item;
         
-        public ToggleSelectionCommand(ApplicationContext context, SelectionService<T> selectionService, T item) 
+        public ToggleSelectionCommand(ApplicationContext context, ISelectionService<T> selectionService, T item) 
             : base(context)
         {
             _selectionService = selectionService;
