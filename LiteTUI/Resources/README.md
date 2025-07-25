@@ -49,6 +49,30 @@ var selectionMenu = new MenuSelection<Product>(
 );
 ```
 
+## Text Input
+
+```csharp
+// As control
+var input = new TextInputControl("Enter Name");
+input.InputCompleted += text => context.CurrentControl = mainMenu;
+
+// As command
+var cmd = new TextInputCommand(context, "Enter Name");
+var name = await cmd.ExecuteAsync();
+```
+## Static Info/Notifications
+
+```csharp
+// Static
+context.infoBlock =  new InfoBlock("Title", "Some context")) // Directly in context
+new ShowInfoCommand(context, new InfoBlock("Title", "Some context"))); // AS command
+                
+// Dynamic notifications
+var norificationService = new NotificationService(context)д
+await norificationService.ShowInfo("Some Info");
+await norificationService.ShowError("Some Error");
+```
+
 ## Custom Control
 
 ```csharp
@@ -72,48 +96,6 @@ public class MyControl : BaseControl
 }
 ```
 
-## Text Input
-
-```csharp
-// As control
-var input = new TextInputControl("Enter Name");
-input.InputCompleted += text => context.CurrentControl = mainMenu;
-
-// As command
-var cmd = new TextInputCommand(context, "Enter Name");
-var name = await cmd.ExecuteAsync();
-```
-
-## Creating a Custom Control
-
-```csharp
-// Inherit from BaseControl to create your own UI elements
-public class MyCustomControl : BaseControl
-{
-    public MyCustomControl(string title) : base(title)
-    {
-    }
-    
-    // Override HandleKey to respond to user input
-    public override bool HandleKey(ConsoleKey key)
-    {
-        if (key == ConsoleKey.X)
-        {
-            // Handle X key press
-            return true;
-        }
-        
-        return base.HandleKey(key);
-    }
-    
-    // Override Render to define your control's appearance
-    public override void Render()
-    {
-        RenderHeader(); // Use base header rendering
-        Console.WriteLine("This is my custom control!");
-    }
-}
-```
 
 ## Note
 

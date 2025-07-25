@@ -1,3 +1,4 @@
+using LiteTUI.Attributes;
 using LiteTUI.Controls.Base;
 
 
@@ -12,6 +13,7 @@ namespace LiteTUI.Core
         public IControl? CurrentControl { get; set; }
         
         // Additional information to display under the main control
+        [AsyncLock]
         public IControl? InfoBlock { get; set; }
     }
 } 

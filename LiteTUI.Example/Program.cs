@@ -28,9 +28,15 @@ namespace LiteTUI.Example
             mainMenu.Items.Add(new MenuItem("Async command (3 sec)", new AsyncDelayCommand(context, 3000)));
             mainMenu.Items.Add(new MenuItem("Async command (5 sec)", new AsyncDelayCommand(context, 5000)));
             mainMenu.Items.Add(new MenuItem(
-                "Info Block",
+                "Static info Block",
                 new ShowInfoCommand(context,
                     new InfoBlock("Title", "Sample content")
+                    )
+                )
+            );
+            mainMenu.Items.Add(new MenuItem(
+                    "Notifications",
+                    new SampleNotificationCommand(context, new NotificationService(context)
                     )
                 )
             );
