@@ -8,7 +8,7 @@ namespace LiteTUI.Controls.Menu
     public class MenuSelection<T> : Menu
     {
         private readonly ApplicationContext _context;
-        private readonly SelectionService<T> _selectionService;
+        private readonly ISelectionService<T> _selectionService;
         private readonly Func<T, string> _itemTextProvider;
         private readonly ICommand<bool> _backCommand;
         
