@@ -39,6 +39,6 @@ namespace LiteTUI.Services
             SelectionChanged?.Invoke();
         }
 
-        public bool IsSelected(T item, Func<T, bool>? predicate = null ) => predicate?.Invoke(item) ?? SelectedItems.Contains(item);
+        public bool IsSelected(T item, Func<T, bool>? predicate = null ) =>  predicate is not null ? SelectedItems.Any(predicate.Invoke)  : SelectedItems.Contains(item);
     }
 }
